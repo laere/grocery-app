@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import Perf from 'react-addons-perf';
-window.ReactPerf = Perf;
 //  STORE METHODS
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
@@ -12,35 +10,19 @@ import Promise from 'redux-promise';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 // CONTAINERS
 import App from './app/app';
-import Home from './components/Home';
-import Games from './containers/GamesContainer';
-import Streams from './containers/StreamsContainer';
-import Videos from './containers/VideosContainer';
-import Channels from './containers/ChannelsContainer';
-import Search from './containers/SearchContainer';
-//REDUCERS
-import rootReducer from './reducers/RootReducer';
+// REDUCERS
+import state from '../reducers/GroceryReducer';
 // Store with middleware.
 const createStoreWithMiddleware = compose(
   applyMiddleware(Thunk, Promise),
   window.devToolsExtension ? window.devToolsExtension() : (f) => f
 )(createStore);
-const store = createStoreWithMiddleware(rootReducer);
 
-// const basePath = location.hostname === 'localhost' ? '/' : '/diversion-2/'
+const store = createStoreWithMiddleware(state);
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router history={browserHistory}>
-      <Route path='/' component={App} >
-        <IndexRoute component={Home} />
-        <Route path="streams" component={Streams} />
-        <Route path="games" component={Games} />
-        <Route path="videos" component={Videos} />
-        <Route path="channels" component={Channels} />
-        <Route path="search" component={Search} />
-      </Route>
-    </Router>
+    <App />
   </Provider>,
   document.querySelector('.container')
 );
