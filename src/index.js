@@ -2,20 +2,22 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 //  STORE METHODS
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 // MIDDLEWARE
 import Thunk from 'redux-thunk';
 import Promise from 'redux-promise';
 // ROUTING METHODS
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+// import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 // CONTAINERS
 import App from './app/app';
 // REDUCERS
-import state from '../reducers/GroceryReducer';
+import state from './reducers/GroceryReducer';
 // Store with middleware.
+const devTools = window.devToolsExtension ? window.devToolsExtension() : (f) => f;
+
 const createStoreWithMiddleware = compose(
   applyMiddleware(Thunk, Promise),
-  window.devToolsExtension ? window.devToolsExtension() : (f) => f
+  devTools
 )(createStore);
 
 const store = createStoreWithMiddleware(state);
