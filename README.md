@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # React Transform Boilerplate
 
 [![react-transform channel on Discord](https://img.shields.io/badge/discord-react--transform%40reactiflux-61DAFB.svg?style=flat-square)](http://www.reactiflux.com)
@@ -125,3 +126,7 @@ You can discuss React Transform and related projects in **#react-transform** cha
 ## License
 
 CC0 (public domain)
+=======
+
+Fullstack project to learn more backend
+>>>>>>> b77a9a66b53287e64bf9137c3da190f523de853a
