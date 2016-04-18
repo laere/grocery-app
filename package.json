@@ -1,5 +1,5 @@
 {
-  "name": "Diversion",
+  "name": "Grocery-app",
   "version": "1.0.0",
   "description": "Project using the twitch API",
   "scripts": {
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/laere/diversion.git"
+    "url": "https://github.com/laere/grocery-app.git"
   },
   "keywords": [
     "react",
@@ -29,9 +29,9 @@
   "author": "Zack Bostian <bostianz@gmail.com> (http://github.com/laere)",
   "license": "CC0-1.0",
   "bugs": {
-    "url": "https://github.com/laere/diversion/issues"
+    "url": "https://github.com/laere/grocery-app/issues"
   },
-  "homepage": "https://github.com/laere/diversion",
+  "homepage": "https://github.com/laere/grocery-app",
   "devDependencies": {
     "babel-core": "^6.6.5",
     "babel-eslint": "^5.0.0-beta4",
