@@ -1,30 +1,6 @@
 import dotProp from 'dot-prop-immutable';
 import shortid from 'shortid';
-
-const actions = {
-  ADD_ITEM: 'ADD_ITEM',
-  DELETE_ITEM: 'DELETE_ITEM',
-  COMPLETE_ITEM: 'COMPLETE_ITEM',
-  GET_INPUT: 'GET_INPUT'
-};
-
-
-export const addItem = (text, id) => {
-  return (dispatch) => {
-    dispatch({
-      type: actions.ADD_ITEM,
-      text,
-      id
-    })
-  }
-}
-
-export const userInput = (input) => {
-  return {
-    type: actions.GET_INPUT,
-    input
-  }
-}
+import * as actions from '../actions/actions';
 
 export function items(state = [], action) {
   switch(action.type) {

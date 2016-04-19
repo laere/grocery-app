@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import InputManager from '../components/InputManager';
 import GroceryList from '../components/GroceryList';
 import { connect } from 'react-redux';
-import { addItem, userInput } from '../reducers/GroceryReducer';
+import { addItem, userInput, deleteItem } from '../actions/actions';
 
 class GroceryManager extends React.Component {
   constructor(props) {

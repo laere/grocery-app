@@ -1,12 +1,19 @@
 import React, { Component, PropTypes } from 'react';
-import ListItem from './ListItem';
+import Button from './Button';
 
-export default class GroceryLict extends Component {
-  render() {
+const GroceryList = ({ items }) => {
     return (
-      <div>
-        {this.props.items.map(item => <ListItem key={item.id} item={item}/>)} 
-      </div>
+        <div>
+            {items.map(item =>
+                <div key={item.id}>
+                    <span>{item.text}</span>
+                    <span>{item.date}</span>
+                    <Button icon="fa fa-check fa-lg"/>
+                    <Button icon="fa fa-times fa-lg"/>
+                </div>
+            )}
+        </div>
     );
-  }
 }
+
+export default GroceryList;
