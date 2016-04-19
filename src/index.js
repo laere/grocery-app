@@ -11,7 +11,7 @@ import Promise from 'redux-promise';
 // CONTAINERS
 import App from './app/app';
 // REDUCERS
-import state from './reducers/GroceryReducer';
+import rootReducer from './reducers/RootReducer';
 // Store with middleware.
 const devTools = window.devToolsExtension ? window.devToolsExtension() : (f) => f;
 
@@ -20,7 +20,7 @@ const createStoreWithMiddleware = compose(
   devTools
 )(createStore);
 
-const store = createStoreWithMiddleware(state);
+const store = createStoreWithMiddleware(rootReducer);
 
 ReactDOM.render(
   <Provider store={store}>

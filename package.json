@@ -13,19 +13,6 @@
     "type": "git",
     "url": "https://github.com/laere/grocery-app.git"
   },
-  "keywords": [
-    "react",
-    "reactjs",
-    "boilerplate",
-    "hot",
-    "reload",
-    "hmr",
-    "live",
-    "edit",
-    "webpack",
-    "babel",
-    "react-transform"
-  ],
   "author": "Zack Bostian <bostianz@gmail.com> (http://github.com/laere)",
   "license": "CC0-1.0",
   "bugs": {

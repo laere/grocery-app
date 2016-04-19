@@ -1,10 +1,10 @@
 import React, { Component, PropTypes } from 'react';
 
-const InputManager = () => {
+const InputManager = ({ onChange, addItem }) => {
   return (
     <div>
-      <form>
-        <input type="text" onChange={this.handleOnChange}/>
+      <form onSubmit={addItem}>
+        <input type="text" onChange={onChange}/>
         <button>Add</button>
       </form>
     </div>

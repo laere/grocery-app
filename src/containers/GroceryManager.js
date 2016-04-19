@@ -1,15 +1,10 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 import InputManager from '../components/InputManager';
 import GroceryList from '../components/GroceryList';
+import { connect } from 'react-redux';
 import { addItem, userInput } from '../reducers/GroceryReducer';
 
 class GroceryManager extends React.Component {
-  static propTypes = {
-    addGroceryItem: PropTypes.func.isRequired,
-    items: PropTypes.array.isRequired,
-    text: PropTypes.string.isRequired,
-  };
-
   constructor(props) {
     super(props);
     this.handleOnChange = this.handleOnChange.bind(this);
@@ -17,6 +12,7 @@ class GroceryManager extends React.Component {
   }
 
   handleAddItem(e) {
+    e.preventDefault();
     const { addGroceryItem, text } = this.props;
     addGroceryItem(text);
   }
@@ -33,7 +29,9 @@ class GroceryManager extends React.Component {
   render() {
     return (
       <div>
-        <InputManager />
+        <InputManager
+          onChange={this.handleOnChange}
+          addItem={this.handleAddItem}/>
         <GroceryList />
       </div>
     );
