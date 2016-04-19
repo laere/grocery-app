@@ -1,4 +1,5 @@
 import dotProp from 'dot-prop-immutable';
+import shortid from 'shortid';
 
 const actions = {
   ADD_ITEM: 'ADD_ITEM',
@@ -8,11 +9,12 @@ const actions = {
 };
 
 
-export const addItem = (text) => {
+export const addItem = (text, id) => {
   return (dispatch) => {
     dispatch({
       type: actions.ADD_ITEM,
-      text
+      text,
+      id
     })
   }
 }
@@ -24,21 +26,14 @@ export const userInput = (input) => {
   }
 }
 
-// const initialState = {
-//   items: [],
-//   id: 0,
-//   text: null,
-//   receivedAt: null,
-//   isComplete: false
-// }
-
-
 export function items(state = [], action) {
-  const date = new Date().toLocaleString();
   switch(action.type) {
     case actions.ADD_ITEM:
       state = state.concat({
-        text: action.text
+        text: action.text,
+        id: shortid.generate(),
+        date: new Date().toLocaleString(),
+        isComplete: false
       })
     default:
       return state;
@@ -51,6 +46,14 @@ export function inputChange(state = '', action) {
       state = action.input;
       return state;
     default:
+      return state;
+  }
+}
+
+export function itemIds(state = [], action) {
+  switch(action.type) {
+    case actions.ADD_ITEM:
+      state = state.items.map(x => x.id)
       return state;
   }
 }

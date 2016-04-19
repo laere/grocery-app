@@ -14,6 +14,7 @@ class GroceryManager extends React.Component {
   handleAddItem(e) {
     e.preventDefault();
     const { addGroceryItem, text } = this.props;
+    if(text === '') return;
     addGroceryItem(text);
   }
 
