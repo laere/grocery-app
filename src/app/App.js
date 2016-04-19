@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import List from '../components/List';
+import GroceryManager from '../containers/GroceryManager';
 
 export default class App extends Component {
   render() {
     return (
-      <List />
+      <GroceryManager />
     );
   }
 }

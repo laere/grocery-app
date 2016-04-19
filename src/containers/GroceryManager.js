@@ -1,15 +1,19 @@
 import React, { Component, PropTypes } from 'react';
-import ListItem from './ListItem';
+import InputManager from '../components/InputManager';
+import GroceryList from '../components/GroceryList';
 import { addItem, userInput } from '../reducers/GroceryReducer';
 
-class List extends React.Component {
+class GroceryManager extends React.Component {
   static propTypes = {
-    addGroceryItem: PropTypes.func.isRequired
+    addGroceryItem: PropTypes.func.isRequired,
+    items: PropTypes.array.isRequired,
+    text: PropTypes.string.isRequired,
   };
 
   constructor(props) {
     super(props);
     this.handleOnChange = this.handleOnChange.bind(this);
+    this.handleAddItem = this.handleAddItem.bind(this);
   }
 
   handleAddItem(e) {
@@ -18,7 +22,7 @@ class List extends React.Component {
   }
 
   handleDeleteItem(e) {
-    
+    return;
   }
 
   handleOnChange(e) {
@@ -29,15 +33,8 @@ class List extends React.Component {
   render() {
     return (
       <div>
-        <div>
-          <input type="text" onChange={this.handleOnChange}/>
-          <button>Add</button>
-        </div>
-        <div>
-          <ul>
-            <ListItem />
-          </ul>
-        </div>
+        <InputManager />
+        <GroceryList />
       </div>
     );
   }
@@ -57,4 +54,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(List);
+export default connect(mapStateToProps, mapDispatchToProps)(GroceryManager);
