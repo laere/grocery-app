@@ -5,7 +5,7 @@ export default class GroceryLict extends Component {
   render() {
     return (
       <div>
-        <ListItem />      
+        {this.props.items.map(item => <ListItem key={item.id} item={item}/>)} 
       </div>
     );
   }

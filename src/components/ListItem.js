@@ -1,10 +1,10 @@
 import React, { Component, PropTypes } from 'react';
 import Button from './Button';
 
-const ListItem = () => {
+const ListItem = ({ item }) => {
   return (
     <div>
-      <span>This is a list item</span>
+      <span>{item.text}</span>
       <Button icon="fa fa-check fa-lg"/>
       <Button icon="fa fa-times fa-lg"/>
     </div>

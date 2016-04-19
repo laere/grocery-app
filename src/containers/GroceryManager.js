@@ -27,12 +27,14 @@ class GroceryManager extends React.Component {
   }
 
   render() {
+    const { items } = this.props;
     return (
       <div>
         <InputManager
           onChange={this.handleOnChange}
           addItem={this.handleAddItem}/>
-        <GroceryList />
+        <GroceryList
+          items={items}/>
       </div>
     );
   }
@@ -41,7 +43,7 @@ class GroceryManager extends React.Component {
 const mapStateToProps = (state) => {
   return {
     items: state.items,
-    text: state.text
+    text: state.inputChange
   }
 }
 

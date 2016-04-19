@@ -24,20 +24,22 @@ export const userInput = (input) => {
   }
 }
 
-const initialState = {
-  items: [],
-  id: 0,
-  text: null,
-  receivedAt: null,
-  isComplete: false
-}
+// const initialState = {
+//   items: [],
+//   id: 0,
+//   text: null,
+//   receivedAt: null,
+//   isComplete: false
+// }
 
 
-export function items(state = initialState, action) {
+export function items(state = [], action) {
   const date = new Date().toLocaleString();
   switch(action.type) {
     case actions.ADD_ITEM:
-      return state;
+      state = state.concat({
+        text: action.text
+      })
     default:
       return state;
   }
