@@ -5,7 +5,6 @@ import { deleteItem, completeItem } from '../actions/actions';
 
 class GroceryListContainer extends React.Component {
   static propTypes = {
-    items: PropTypes.object.isRequired,
     deleteGroceryItem: PropTypes.func.isRequired,
     completeGroceryItem: PropTypes.func.isRequired
   };
@@ -16,9 +15,10 @@ class GroceryListContainer extends React.Component {
     this.handleCompleteItem = this.handleCompleteItem.bind(this);
   }
 
-  handleDeleteItem(e, id) {
-    const { deleteGroceryItem } = this.props;
-    deleteGroceryItem(id)
+  handleDeleteItem(e) {
+    // const { deleteGroceryItem } = this.props;
+    console.log('hello');
+    // deleteGroceryItem(id)
   }
 
   handleCompleteItem(e) {
@@ -29,8 +29,8 @@ class GroceryListContainer extends React.Component {
     const { items } = this.props;
     return (
       <GroceryList
-        items={items}
-        deleteItem={this.handleDeleteItem}/>
+        deleteItem={this.handleDeleteItem}
+        items={items}/>
     );
   }
 }

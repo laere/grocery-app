@@ -9,7 +9,7 @@ const GroceryList = ({ items, deleteItem }) => {
                     <span>{item.text}</span>
                     <span>{item.date}</span>
                     <Button icon="fa fa-check fa-lg"/>
-                    <Button icon="fa fa-times fa-lg"/>
+                    <Button icon="fa fa-times fa-lg" onClick={deleteItem}/>
                 </div>
             )}
         </div>

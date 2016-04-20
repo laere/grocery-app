@@ -7,6 +7,7 @@ const InputManager = ({ onChange, addItem }) => {
       <form onSubmit={addItem}>
         <input type="text" onChange={onChange}/>
         <Button icon="fa fa-plus fa-lg" />
+        <Button icon="fa fa-trash fa-lg" />
       </form>
     </div>
   );

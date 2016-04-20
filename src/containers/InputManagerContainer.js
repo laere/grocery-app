@@ -28,6 +28,10 @@ class InputManagerContainer extends React.Component {
     getInput(e.target.value);
   }
 
+  handleClearInput(e) {
+    
+  }
+
   render() {
     return (
       <InputManager

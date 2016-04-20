@@ -2,11 +2,7 @@ import dotProp from 'dot-prop-immutable';
 import shortid from 'shortid';
 import * as actions from '../actions/actions';
 
-const initialState = {
-  items: []
-}
-
-export function items(state = initialState, action) {
+export function items(state = [], action) {
   switch(action.type) {
     case actions.ADD_ITEM:
       state = state.concat({
@@ -39,6 +35,9 @@ export function inputChange(state = '', action) {
   switch(action.type) {
     case actions.GET_INPUT:
       state = action.input;
+      return state;
+    case actions.CLEAR_INPUT:
+      state = '';
       return state;
     default:
       return state;
