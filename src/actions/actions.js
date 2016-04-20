@@ -24,8 +24,9 @@ export const userInput = (input) => {
   }
 }
 
-export const completeItem = () => {
+export const completeItem = (id) => {
   return {
-    type: COMPLETE_ITEM
+    type: COMPLETE_ITEM,
+    id
   }
 }

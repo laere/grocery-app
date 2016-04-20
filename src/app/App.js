@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
-import GroceryManager from '../containers/GroceryManager';
+import { GroceryListContainer, InputManagerContainer } from '../containers/containers';
 
 export default class App extends Component {
   render() {
     return (
-      <GroceryManager />
+      <div>
+        <InputManagerContainer />
+        <GroceryListContainer />
+      </div>
     );
   }
 }
