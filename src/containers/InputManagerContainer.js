@@ -1,19 +1,21 @@
 import React, { Component, PropTypes } from 'react';
 import InputManager from '../components/InputManager';
 import { connect } from 'react-redux';
-import { addItem, userInput } from '../actions/actions';
+import { addItem, userInput, clear } from '../actions/actions';
 
 class InputManagerContainer extends React.Component {
   static propTypes = {
     text: PropTypes.string.isRequired,
     addGroceryItem: PropTypes.func.isRequired,
-    getInput: PropTypes.func.isRequired
+    getInput: PropTypes.func.isRequired,
+    clearInput: PropTypes.func.isRequired,
   };
 
   constructor(props) {
     super(props);
     this.handleOnChange = this.handleOnChange.bind(this);
     this.handleAddItem = this.handleAddItem.bind(this);
+    this.handleClearInput = this.handleClearInput.bind(this);
   }
 
   handleAddItem(e) {
@@ -29,14 +31,17 @@ class InputManagerContainer extends React.Component {
   }
 
   handleClearInput(e) {
-
+    const { clearInput } = this.props;;
+    clearInput();
   }
 
   render() {
     return (
       <InputManager
+        text={this.props.text}
         onChange={this.handleOnChange}
-        addItem={this.handleAddItem}/>
+        addItem={this.handleAddItem}
+        clearInput={this.handleClearInput}/>
     );
   }
 }
@@ -50,7 +55,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     addGroceryItem: (text) => dispatch(addItem(text)),
-    getInput: (input) => dispatch(userInput(input))
+    getInput: (input) => dispatch(userInput(input)),
+    clearInput: () => dispatch(clear())
   }
 }
 

@@ -21,7 +21,7 @@ export function items(state = [], action) {
   }
 }
 
-export function completeItem(state = initialState, action) {
+export function completeItem(state, action) {
   switch(action.type) {
     case actions.COMPLETE_ITEM:
       const index = state.items.indexOf(action.id);
@@ -37,7 +37,7 @@ export function inputChange(state = '', action) {
       state = action.input;
       return state;
     case actions.CLEAR_INPUT:
-      state = '';
+      state = action.payload
       return state;
     default:
       return state;

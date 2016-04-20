@@ -13,11 +13,9 @@ import App from './app/app';
 // REDUCERS
 import rootReducer from './reducers/RootReducer';
 // Store with middleware.
-const devTools = window.devToolsExtension ? window.devToolsExtension() : (f) => f;
-
 const createStoreWithMiddleware = compose(
   applyMiddleware(Thunk, Promise),
-  devTools
+  window.devToolsExtension ? window.devToolsExtension() : (f) => f
 )(createStore);
 
 const store = createStoreWithMiddleware(rootReducer);

@@ -32,8 +32,9 @@ export const completeItem = (id) => {
   }
 }
 
-export const clearInput = () => {
+export const clear = () => {
   return {
-    type: CLEAR_INPUT
+    type: CLEAR_INPUT,
+    payload: ''
   }
 }
