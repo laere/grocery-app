@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import Button from './Button';
 
-const GroceryList = ({ items }) => {
+const GroceryList = ({ items, deleteItem }) => {
     return (
         <div>
             {items.map(item =>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { GroceryListContainer, InputManagerContainer } from '../containers/containers';
+import GroceryListContainer from '../containers/GroceryListContainer';
+import InputManagerContainer from '../containers/InputManagerContainer';
 
 export default class App extends Component {
   render() {

@@ -1,12 +1,13 @@
-import React, { PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 import GroceryList from '../components/GroceryList';
 import { connect } from 'react-redux';
-import { deleteItem } from '../actions/actions';
+import { deleteItem, completeItem } from '../actions/actions';
 
 class GroceryListContainer extends React.Component {
   static propTypes = {
-    items: PropTypes.array.isRequired,
-    deleteItem: PropTypes.func.isRequired
+    items: PropTypes.object.isRequired,
+    deleteGroceryItem: PropTypes.func.isRequired,
+    completeGroceryItem: PropTypes.func.isRequired
   };
 
   constructor(props) {
@@ -43,6 +44,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     deleteGroceryItem: (id) => dispatch(deleteItem(id)),
+    completeGroceryItem: (id) => dispatch(completeItem(id))
   }
 }
 

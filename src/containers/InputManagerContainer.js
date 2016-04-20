@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 import InputManager from '../components/InputManager';
 import { connect } from 'react-redux';
 import { addItem, userInput } from '../actions/actions';
@@ -6,8 +6,8 @@ import { addItem, userInput } from '../actions/actions';
 class InputManagerContainer extends React.Component {
   static propTypes = {
     text: PropTypes.string.isRequired,
-    addItem: PropTypes.func.isRequired,
-    userInput: PropTypes.func.isRequired
+    addGroceryItem: PropTypes.func.isRequired,
+    getInput: PropTypes.func.isRequired
   };
 
   constructor(props) {
