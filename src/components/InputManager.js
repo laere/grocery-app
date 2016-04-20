@@ -1,13 +1,16 @@
 import React, { Component, PropTypes } from 'react';
-import Button from './Button';
 
 const InputManager = ({ onChange, addItem }) => {
   return (
     <div>
       <form onSubmit={addItem}>
         <input type="text" onChange={onChange}/>
-        <Button icon="fa fa-plus fa-lg" />
-        <Button icon="fa fa-trash fa-lg" />
+        <button>
+          <i className="fa fa-plus fa-lg"></i>
+        </button>
+        <button>
+          <i className="fa fa-trash fa-lg"></i>
+        </button>
       </form>
     </div>
   );

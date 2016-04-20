@@ -29,7 +29,7 @@ class InputManagerContainer extends React.Component {
   }
 
   handleClearInput(e) {
-    
+
   }
 
   render() {

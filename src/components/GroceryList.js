@@ -8,8 +8,12 @@ const GroceryList = ({ items, deleteItem }) => {
                 <div key={item.id}>
                     <span>{item.text}</span>
                     <span>{item.date}</span>
-                    <Button icon="fa fa-check fa-lg"/>
-                    <Button icon="fa fa-times fa-lg" onClick={deleteItem}/>
+                    <button>
+                        <i className="fa fa-check fa-lg"></i>
+                    </button>
+                    <button onClick={deleteItem}>
+                        <i className="fa fa-times fa-lg"></i>
+                    </button>
                 </div>
             )}
         </div>

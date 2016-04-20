@@ -15,10 +15,10 @@ class GroceryListContainer extends React.Component {
     this.handleCompleteItem = this.handleCompleteItem.bind(this);
   }
 
-  handleDeleteItem(e) {
-    // const { deleteGroceryItem } = this.props;
+  handleDeleteItem() {
+    const { deleteGroceryItem } = this.props;
     console.log('hello');
-    // deleteGroceryItem(id)
+    deleteGroceryItem(id)
   }
 
   handleCompleteItem(e) {
