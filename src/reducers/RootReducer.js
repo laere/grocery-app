@@ -1,9 +1,10 @@
 import { combineReducers } from 'redux';
-import { items, inputChange } from './GroceryReducer';
+import { items, inputChange, itemIds } from './GroceryReducer';
 
 const rootReducer = combineReducers({
   items,
-  inputChange
+  inputChange,
+  itemIds
 });
 
 export default rootReducer;

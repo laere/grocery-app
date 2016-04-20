@@ -1,44 +1,33 @@
 import dotProp from 'dot-prop-immutable';
-import shortid from 'shortid';
+import { findIndex } from 'lodash';
 import * as actions from '../actions/actions';
+
+let nextId = 0;
 
 export function items(state = [], action) {
   switch(action.type) {
     case actions.ADD_ITEM:
-      state = state.concat({
+      return state.concat({
         text: action.text,
-        id: shortid.generate(),
+        id: nextId++,
         date: new Date().toLocaleString(),
         isComplete: false
       })
-      return state;
     case actions.DELETE_ITEM:
-      const index = state.indexOf(action.id)
-      state = dotProp.delete(state, `state.${index}`);
       return state;
-    default:
-      return state;
-  }
-}
-
-export function completeItem(state, action) {
-  switch(action.type) {
     case actions.COMPLETE_ITEM:
-      const index = state.items.indexOf(action.id);
       return state;
     default:
-      return;
+      return state;
   }
 }
 
 export function inputChange(state = '', action) {
   switch(action.type) {
     case actions.GET_INPUT:
-      state = action.input;
-      return state;
+      return action.input
     case actions.CLEAR_INPUT:
-      state = action.payload
-      return state;
+      return action.payload;
     default:
       return state;
   }
@@ -47,7 +36,8 @@ export function inputChange(state = '', action) {
 export function itemIds(state = [], action) {
   switch(action.type) {
     case actions.ADD_ITEM:
-      state = state.items.map(x => x.id)
+      return state;
+    default:
       return state;
   }
 }
