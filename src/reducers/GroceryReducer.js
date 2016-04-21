@@ -5,6 +5,7 @@ import * as actions from '../actions/actions';
 let nextId = 0;
 
 export function items(state = [], action) {
+  const index = _.findIndex(state, x => x.id === action.id);
   switch(action.type) {
     case actions.ADD_ITEM:
       return state.concat({
@@ -14,10 +15,10 @@ export function items(state = [], action) {
           isComplete: false
         })
     case actions.DELETE_ITEM:
-      const index = _.findIndex(state, x => x.id === action.id);
       return dotProp.delete(state, `${index}`);
     case actions.COMPLETE_ITEM:
-      return state;
+      console.log(index);
+      return dotProp.set(state, `${index}.isComplete`, true);
     default:
       return state;
   }
