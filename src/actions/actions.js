@@ -12,6 +12,7 @@ export const addItem = (text) => {
 }
 
 export const deleteItem = (id) => {
+  console.log('id returned from deleteItem action');
   console.log(id);
   return {
     type: DELETE_ITEM,

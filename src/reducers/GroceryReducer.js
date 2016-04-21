@@ -8,13 +8,14 @@ export function items(state = [], action) {
   switch(action.type) {
     case actions.ADD_ITEM:
       return state.concat({
-        text: action.text,
-        id: nextId++,
-        date: new Date().toLocaleString(),
-        isComplete: false
-      })
+          text: action.text,
+          id: nextId++,
+          date: new Date().toLocaleString(),
+          isComplete: false
+        })
     case actions.DELETE_ITEM:
-      return state;
+      const index = _.findIndex(state, x => x.id === action.id);
+      return dotProp.delete(state, `${index}`);
     case actions.COMPLETE_ITEM:
       return state;
     default:
@@ -28,15 +29,6 @@ export function inputChange(state = '', action) {
       return action.input
     case actions.CLEAR_INPUT:
       return action.payload;
-    default:
-      return state;
-  }
-}
-
-export function itemIds(state = [], action) {
-  switch(action.type) {
-    case actions.ADD_ITEM:
-      return state;
     default:
       return state;
   }

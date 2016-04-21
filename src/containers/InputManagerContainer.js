@@ -23,6 +23,7 @@ class InputManagerContainer extends React.Component {
     const { addGroceryItem, text } = this.props;
     if(text === '') return;
     addGroceryItem(text);
+    this.handleClearInput();
   }
 
   handleOnChange(e) {
