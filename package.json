@@ -44,6 +44,7 @@
   },
   "dependencies": {
     "axios": "^0.9.1",
+    "bluebird": "^3.3.5",
     "dot-prop-immutable": "^1.1.2",
     "firebase": "^2.4.2",
     "immutable": "^3.8.1",
