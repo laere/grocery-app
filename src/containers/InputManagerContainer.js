@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import InputManager from '../components/InputManager';
 import { connect } from 'react-redux';
 import { addItem, userInput, clear } from '../actions/actions';
+import Firebase from 'firebase';
 
 class InputManagerContainer extends React.Component {
   static propTypes = {

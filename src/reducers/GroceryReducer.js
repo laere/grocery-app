@@ -5,19 +5,22 @@ import * as actions from '../actions/actions';
 let nextId = 0;
 
 export function items(state = [], action) {
+  // const rootRef = 'https://zacksgroceryapp.firebaseio.com/';
+  // const listRef = new Firbase(rootRef + 'grocerylist');
   const index = _.findIndex(state, x => x.id === action.id);
   switch(action.type) {
-    case actions.ADD_ITEM:
-      return state.concat({
-          text: action.text,
-          id: nextId++,
-          date: new Date().toLocaleString(),
-          isComplete: false
-        })
+    case actions.RENDER_ITEMS:
+      return state.concat(action.items);
+    // case actions.ADD_ITEM:
+    //   return state.concat({
+    //       text: action.text,
+    //       id: nextId++,
+    //       date: new Date().toLocaleString(),
+    //       isComplete: false
+    //     })
     case actions.DELETE_ITEM:
       return dotProp.delete(state, `${index}`);
     case actions.COMPLETE_ITEM:
-      console.log(index);
       return dotProp.set(state, `${index}.isComplete`, true);
     default:
       return state;

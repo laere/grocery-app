@@ -1,7 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import GroceryList from '../components/GroceryList';
 import { connect } from 'react-redux';
-import { deleteItem, completeItem } from '../actions/actions';
+import { deleteItem, completeItem, renderItems } from '../actions/actions';
+import Firebase from 'firebase';
 
 class GroceryListContainer extends React.Component {
   static propTypes = {
@@ -13,6 +14,16 @@ class GroceryListContainer extends React.Component {
     super(props);
     this.handleDeleteItem = this.handleDeleteItem.bind(this);
     this.handleCompleteItem = this.handleCompleteItem.bind(this);
+  }
+
+  componentDidMount() {
+
+    const { renderGroceryItems } = this.props,
+          url = 'https://zacksgroceryapp.firebaseio.com/',
+          groceryListRef = new Firebase(url + 'grocerylist');
+    groceryListRef.on('value', (snap) => {
+      renderGroceryItems(snap.val());
+    })
   }
 
   handleDeleteItem(id) {
@@ -46,7 +57,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     deleteGroceryItem: (id) => dispatch(deleteItem(id)),
-    completeGroceryItem: (id) => dispatch(completeItem(id))
+    completeGroceryItem: (id) => dispatch(completeItem(id)),
+    renderGroceryItems: (items) => dispatch(renderItems(items))
   }
 }
 

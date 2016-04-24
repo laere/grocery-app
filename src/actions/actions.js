@@ -3,6 +3,14 @@ export const DELETE_ITEM = 'DELETE_ITEM';
 export const COMPLETE_ITEM = 'COMPLETE_ITEM';
 export const GET_INPUT = 'GET_INPUT';
 export const CLEAR_INPUT = 'CLEAR_INPUT';
+export const RENDER_ITEMS = 'RENDER_ITEMS';
+
+export const renderItems = (items) => {
+  return {
+    type: RENDER_ITEMS,
+    items
+  }
+}
 
 export const addItem = (text) => {
   return {
@@ -12,8 +20,6 @@ export const addItem = (text) => {
 }
 
 export const deleteItem = (id) => {
-  console.log('id returned from deleteItem action');
-  console.log(id);
   return {
     type: DELETE_ITEM,
     id
