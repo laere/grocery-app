@@ -4,7 +4,7 @@ import React, { Component, PropTypes } from 'react';
 const GroceryList = ({ items, deleteItem, completeItem }) => {
     return (
         <div>
-            {items.map((item,index) => {
+            {items.map((item, index) => {
                 return (
                     <div key={index}>
                         <span className={item.isComplete ? 'complete' : 'incomplete'}>{item.text}</span>

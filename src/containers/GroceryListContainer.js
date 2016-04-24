@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import GroceryList from '../components/GroceryList';
 import { connect } from 'react-redux';
 import { deleteItem, completeItem, renderItems } from '../actions/actions';
+import { toArray } from 'lodash';
 
 class GroceryListContainer extends React.Component {
   static propTypes = {
@@ -20,7 +21,7 @@ class GroceryListContainer extends React.Component {
     url = 'https://zacksgroceryapp.firebaseio.com/grocerylist',
     groceryListRef = new Firebase(url);
     groceryListRef.on('value', snap => {
-      renderGroceryItems(snap.val());
+      renderGroceryItems(_.toArray(snap.val()));
     })
   }
 
