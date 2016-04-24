@@ -1,12 +1,12 @@
 import React, { Component, PropTypes } from 'react';
 
+
 const GroceryList = ({ items, deleteItem, completeItem }) => {
     return (
         <div>
-            {items.map(item => {
-                const id = item.id;
+            {items.map((item,index) => {
                 return (
-                    <div key={id}>
+                    <div key={index}>
                         <span className={item.isComplete ? 'complete' : 'incomplete'}>{item.text}</span>
                         <span>{item.date}</span>
                         <button onClick={() => completeItem(id)}>

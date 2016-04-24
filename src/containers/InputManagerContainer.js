@@ -21,16 +21,17 @@ class InputManagerContainer extends React.Component {
 
   handleAddItem(e) {
     e.preventDefault();
-    // const { addGroceryItem, text } = this.props;
-    // if(text === '') return;
-    // addGroceryItem(text);
-    // this.handleClearInput();
-    const { items, text } = this.props,
-    url = 'https://zacksgroceryapp.firebaseio.com/',
-    groceryListRef = new Firebase(url + 'grocerylist');
-    groceryListRef.on('child_added', snap => {
-      items.push(snap.value());
-    })
+    const { addGroceryItem, text } = this.props;
+    if(text === '') return;
+    addGroceryItem(text);
+    this.handleClearInput();
+    // const { items, text } = this.props,
+    // url = 'https://zacksgroceryapp.firebaseio.com/',
+    // groceryListRef = new Firebase(url + 'grocerylist');
+    // groceryListRef.on('child_added', snap => {
+    //   items.push(snap.val());
+    //   console.log(items);
+    // })
   }
 
   handleOnChange(e) {

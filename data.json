@@ -1,19 +1,16 @@
 {
   "grocerylist" : [
     {
-      "id": 0,
       "text": "this is a todo item",
       "date": "4/23/2015",
       "isComplete": false
     },
     {
-      "id": 1,
       "text": "this is a 2nd todo item",
       "date": "4/23/2015",
       "isComplete": false
     },
     {
-      "id": 2,
       "text": "this is a 3rd todo item",
       "date": "4/23/2015",
       "isComplete": false

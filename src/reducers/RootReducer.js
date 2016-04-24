@@ -5,7 +5,6 @@ import { firebaseStateReducer } from 'redux-react-firebase'
 const rootReducer = combineReducers({
   items,
   inputChange,
-  firebase: firebaseStateReducer
 });
 
 export default rootReducer;

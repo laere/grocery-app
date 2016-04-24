@@ -1,21 +1,23 @@
 import dotProp from 'dot-prop-immutable';
 import { findIndex } from 'lodash';
 import * as actions from '../actions/actions';
-
-let nextId = 0;
+import shortid from 'shortid';
 
 export function items(state = [], action) {
   const index = _.findIndex(state, x => x.id === action.id),
-        url = 'https://zacksgroceryapp.firebaseio.com/',
-        groceryListRef = new Firebase(url + 'grocerylist');
+        url = 'https://zacksgroceryapp.firebaseio.com/grocerylist',
+        groceryListRef = new Firebase(url);
   switch(action.type) {
     case actions.RENDER_ITEMS:
       return state.concat(action.items);
     case actions.ADD_ITEM:
-      return groceryListRef.on('child_added', snap => {
-        state.push(snap.value())
-      });
-      return state;
+      const item = {
+          text: action.text,
+          date: new Date().toLocaleString(),
+          isComplete: false
+        }
+        groceryListRef.push(item);
+        return state.concat(item);
     case actions.DELETE_ITEM:
       return dotProp.delete(state, `${index}`);
     case actions.COMPLETE_ITEM:
