@@ -9,11 +9,13 @@ import Promise from 'redux-promise';
 // ROUTING METHODS
 // import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 // CONTAINERS
+import { reduxReactFirebase } from 'redux-react-firebase'
 import App from './app/app';
 // REDUCERS
 import rootReducer from './reducers/RootReducer';
 // Store with middleware.
 const createStoreWithMiddleware = compose(
+  reduxReactFirebase('https://zacksgroceryapp.firebaseio.com/'),
   applyMiddleware(Thunk, Promise),
   window.devToolsExtension ? window.devToolsExtension() : (f) => f
 )(createStore);

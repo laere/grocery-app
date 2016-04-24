@@ -46,6 +46,8 @@
     "axios": "^0.9.1",
     "dot-prop-immutable": "^1.1.2",
     "firebase": "^2.4.2",
+    "immutable": "^3.8.1",
+    "lodash": "^4.11.1",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
     "react-redux": "^4.4.5",
@@ -53,6 +55,7 @@
     "react-tools": "^0.13.3",
     "redux": "^3.3.1",
     "redux-promise": "^0.5.3",
+    "redux-react-firebase": "^1.9.0",
     "redux-thunk": "^2.0.1",
     "shortid": "^2.2.6"
   }

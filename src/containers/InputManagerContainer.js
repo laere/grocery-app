@@ -21,10 +21,16 @@ class InputManagerContainer extends React.Component {
 
   handleAddItem(e) {
     e.preventDefault();
-    const { addGroceryItem, text } = this.props;
-    if(text === '') return;
-    addGroceryItem(text);
-    this.handleClearInput();
+    // const { addGroceryItem, text } = this.props;
+    // if(text === '') return;
+    // addGroceryItem(text);
+    // this.handleClearInput();
+    const { items, text } = this.props,
+    url = 'https://zacksgroceryapp.firebaseio.com/',
+    groceryListRef = new Firebase(url + 'grocerylist');
+    groceryListRef.on('child_added', snap => {
+      items.push(snap.value());
+    })
   }
 
   handleOnChange(e) {
@@ -50,7 +56,8 @@ class InputManagerContainer extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    text: state.inputChange
+    text: state.inputChange,
+    items: state.items
   }
 }
 

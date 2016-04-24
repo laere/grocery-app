@@ -17,11 +17,10 @@ class GroceryListContainer extends React.Component {
   }
 
   componentDidMount() {
-
     const { renderGroceryItems } = this.props,
-          url = 'https://zacksgroceryapp.firebaseio.com/',
-          groceryListRef = new Firebase(url + 'grocerylist');
-    groceryListRef.on('value', (snap) => {
+    url = 'https://zacksgroceryapp.firebaseio.com/',
+    groceryListRef = new Firebase(url + 'grocerylist');
+    groceryListRef.on('value', snap => {
       renderGroceryItems(snap.val());
     })
   }
