@@ -5,17 +5,17 @@ export const GET_INPUT = 'GET_INPUT';
 export const CLEAR_INPUT = 'CLEAR_INPUT';
 export const RENDER_ITEMS = 'RENDER_ITEMS';
 
-export const renderItems = (items) => {
+export const renderItems = (groceryitems) => {
   return {
     type: RENDER_ITEMS,
-    items
+    groceryitems
   }
 }
 
-export const addItem = (text) => {
+export const addItem = (itemData) => {
   return {
     type: ADD_ITEM,
-    text
+    itemData
   }
 }
 

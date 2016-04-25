@@ -4,6 +4,9 @@ import { connect } from 'react-redux';
 import { deleteItem, completeItem, renderItems } from '../actions/actions';
 import { toArray } from 'lodash';
 
+const url = 'https://zacksgroceryapp.firebaseio.com/grocerylist',
+      groceryListRef = new Firebase(url);
+
 class GroceryListContainer extends React.Component {
   static propTypes = {
     deleteGroceryItem: PropTypes.func.isRequired,
@@ -17,21 +20,19 @@ class GroceryListContainer extends React.Component {
   }
 
   componentDidMount() {
-    const { renderGroceryItems } = this.props,
-    url = 'https://zacksgroceryapp.firebaseio.com/grocerylist',
-    groceryListRef = new Firebase(url);
+    const { renderGroceryItems } = this.props;
     groceryListRef.on('value', snap => {
-      renderGroceryItems(_.toArray(snap.val()));
+      renderGroceryItems(snap.val());
     })
   }
 
   handleDeleteItem(id) {
     const { deleteGroceryItem } = this.props;
+    groceryListRef.child(id).remove();
     deleteGroceryItem(id);
   }
 
   handleCompleteItem(id) {
-    console.log('complete func!!!!!');
     const { completeGroceryItem } = this.props;
     completeGroceryItem(id);
   }

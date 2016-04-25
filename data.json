@@ -1,19 +1,32 @@
-{
-  "grocerylist" : [
-    {
-      "text": "this is a todo item",
-      "date": "4/23/2015",
-      "isComplete": false
-    },
-    {
-      "text": "this is a 2nd todo item",
-      "date": "4/23/2015",
-      "isComplete": false
-    },
-    {
-      "text": "this is a 3rd todo item",
-      "date": "4/23/2015",
-      "isComplete": false
-    }
-  ]
-}
+[
+  "-KGDPzZst5lOWdvRb_ZE" : {
+    "date" : "4/25/2016, 1:16:20 PM",
+    "id" : "rJp1-Asx",
+    "isComplete" : false,
+    "text" : "asdadasdad"
+  },
+  "-KGDQ-F2Ge1rPK2GCJUg" : {
+    "date" : "4/25/2016, 1:16:23 PM",
+    "id" : "HylxZRse",
+    "isComplete" : false,
+    "text" : "asdsadasdadasd"
+  },
+  "-KGDQ-mZzzwSrrKil4NF" : {
+    "date" : "4/25/2016, 1:16:25 PM",
+    "id" : "Byfx-Rsg",
+    "isComplete" : false,
+    "text" : "asdasdsadadaasdasd"
+  },
+  "-KGDTOMEve9p8koKNRlS" : {
+    "date" : "4/25/2016, 1:31:12 PM",
+    "id" : "SJKwVCjx",
+    "isComplete" : false,
+    "text" : "asdasdadasd"
+  },
+  "-KGDXulG_zkXbRBe71gX" : {
+    "date" : "4/25/2016, 1:50:58 PM",
+    "id" : "BJqWFCie",
+    "isComplete" : false,
+    "text" : "hello hello"
+  }
+]
