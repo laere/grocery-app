@@ -9,6 +9,7 @@ const GroceryList = ({ items, deleteItem, completeItem }) => {
                 return (
                     <div key={id}>
                         <span className={item.isComplete ? 'complete' : 'incomplete'}>{item.text}</span>
+                        {' '}
                         <span>{item.date}</span>
                         <button onClick={() => completeItem(id)}>
                             <i className="fa fa-check fa-lg"></i>

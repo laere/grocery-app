@@ -27,7 +27,7 @@ class InputManagerContainer extends React.Component {
     const { addGroceryItem, text } = this.props;
     groceryListRef.push({
       id: shortid.generate(),
-      text: groceryText,
+      text: text,
       date: new Date().toLocaleString(),
       isComplete: false
     })
