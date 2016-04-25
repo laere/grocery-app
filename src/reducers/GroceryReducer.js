@@ -1,10 +1,10 @@
 import dotProp from 'dot-prop-immutable';
-import { findIndex } from 'lodash';
+import { findKey } from 'lodash';
 import * as actions from '../actions/actions';
 
 
 export function items(state = {}, action) {
-  const index = _.findIndex(state, x => x.id === action.id),
+  const index = _.findKey(state, x => x.id === action.id),
         url = 'https://zacksgroceryapp.firebaseio.com/grocerylist',
         groceryListRef = new Firebase(url);
   switch(action.type) {
@@ -12,8 +12,8 @@ export function items(state = {}, action) {
       return {...state, ...action.groceryitems}
     case actions.DELETE_ITEM:
       return dotProp.delete(state, `${index}`);
-    case actions.COMPLETE_ITEM:
-      return dotProp.set(state, `${index}.isComplete`, true);
+    // case actions.COMPLETE_ITEM:
+    //   return dotProp.set(state, `${index}.isComplete`, true);
     default:
       return state;
   }

@@ -10,7 +10,6 @@ const url = 'https://zacksgroceryapp.firebaseio.com/grocerylist',
 class InputManagerContainer extends React.Component {
   static propTypes = {
     text: PropTypes.string.isRequired,
-    addGroceryItem: PropTypes.func.isRequired,
     getInput: PropTypes.func.isRequired,
     clearInput: PropTypes.func.isRequired,
   };
@@ -27,10 +26,11 @@ class InputManagerContainer extends React.Component {
     const { addGroceryItem, text } = this.props;
     groceryListRef.push({
       id: shortid.generate(),
-      text: text,
+      text,
       date: new Date().toLocaleString(),
       isComplete: false
     })
+    this.handleClearInput();
   }
 
   handleOnChange(e) {
@@ -46,7 +46,7 @@ class InputManagerContainer extends React.Component {
   render() {
     return (
       <InputManager
-        text={this.props.groceryText}
+        text={this.props.text}
         onChange={this.handleOnChange}
         addItem={this.handleAddItem}
         clearInput={this.handleClearInput}/>

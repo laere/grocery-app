@@ -28,7 +28,8 @@ class GroceryListContainer extends React.Component {
 
   handleDeleteItem(id) {
     const { deleteGroceryItem } = this.props;
-    groceryListRef.child(id).remove();
+    console.log(id);
+    console.log(groceryListRef.child(id).remove());
     deleteGroceryItem(id);
   }
 

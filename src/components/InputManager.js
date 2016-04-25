@@ -16,4 +16,11 @@ const InputManager = ({ onChange, addItem, clearInput, text }) => {
   );
 };
 
+InputManager.propTypes = {
+  onChange: PropTypes.func.isRequired,
+  addItem: PropTypes.func.isRequired,
+  clearInput: PropTypes.func.isRequired,
+  text: PropTypes.string.isRequired
+}
+
 export default InputManager;
