@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import GroceryList from '../components/GroceryList';
 import { connect } from 'react-redux';
 import { deleteItem, completeItem, renderItems } from '../actions/actions';
-import { toArray } from 'lodash';
 
 const url = 'https://zacksgroceryapp.firebaseio.com/grocerylist',
       groceryListRef = new Firebase(url);
@@ -26,10 +25,9 @@ class GroceryListContainer extends React.Component {
     })
   }
 
-  handleDeleteItem(id) {
+  handleDeleteItem(key, id) {
     const { deleteGroceryItem } = this.props;
-    console.log(id);
-    console.log(groceryListRef.child(id).remove());
+    groceryListRef.child(key).remove();
     deleteGroceryItem(id);
   }
 

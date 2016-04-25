@@ -2,11 +2,8 @@ import dotProp from 'dot-prop-immutable';
 import { findKey } from 'lodash';
 import * as actions from '../actions/actions';
 
-
 export function items(state = {}, action) {
-  const index = _.findKey(state, x => x.id === action.id),
-        url = 'https://zacksgroceryapp.firebaseio.com/grocerylist',
-        groceryListRef = new Firebase(url);
+  const index = _.findKey(state, x => x.id === action.id);
   switch(action.type) {
     case actions.RENDER_ITEMS:
       return {...state, ...action.groceryitems}
