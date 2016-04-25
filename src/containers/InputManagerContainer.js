@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import InputManager from '../components/InputManager';
 import { connect } from 'react-redux';
-import { addItem, userInput, clear } from '../actions/actions';
+import { userInput, clear } from '../actions/actions';
 import shortid from 'shortid';
 
 const url = 'https://zacksgroceryapp.firebaseio.com/grocerylist',
@@ -9,6 +9,7 @@ const url = 'https://zacksgroceryapp.firebaseio.com/grocerylist',
 
 class InputManagerContainer extends React.Component {
   static propTypes = {
+    text: PropTypes.string.isRequired,
     addGroceryItem: PropTypes.func.isRequired,
     getInput: PropTypes.func.isRequired,
     clearInput: PropTypes.func.isRequired,
@@ -23,7 +24,7 @@ class InputManagerContainer extends React.Component {
 
   handleAddItem(e) {
     e.preventDefault();
-    const { addGroceryItem, groceryText } = this.props;
+    const { addGroceryItem, text } = this.props;
     groceryListRef.push({
       id: shortid.generate(),
       text: groceryText,
@@ -55,14 +56,13 @@ class InputManagerContainer extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    groceryText: state.inputChange,
+    text: state.inputChange,
     items: state.items
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addGroceryItem: (itemData) => dispatch(addItem(itemData)),
     getInput: (input) => dispatch(userInput(input)),
     clearInput: () => dispatch(clear())
   }

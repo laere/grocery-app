@@ -1,4 +1,3 @@
-export const ADD_ITEM = 'ADD_ITEM';
 export const DELETE_ITEM = 'DELETE_ITEM';
 export const COMPLETE_ITEM = 'COMPLETE_ITEM';
 export const GET_INPUT = 'GET_INPUT';
@@ -9,13 +8,6 @@ export const renderItems = (groceryitems) => {
   return {
     type: RENDER_ITEMS,
     groceryitems
-  }
-}
-
-export const addItem = (itemData) => {
-  return {
-    type: ADD_ITEM,
-    itemData
   }
 }
 

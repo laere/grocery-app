@@ -10,8 +10,6 @@ export function items(state = {}, action) {
   switch(action.type) {
     case actions.RENDER_ITEMS:
       return {...state, ...action.groceryitems}
-    case actions.ADD_ITEM:
-      return state;
     case actions.DELETE_ITEM:
       return dotProp.delete(state, `${index}`);
     case actions.COMPLETE_ITEM:
