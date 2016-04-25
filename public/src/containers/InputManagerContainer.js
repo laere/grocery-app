@@ -24,17 +24,13 @@ class InputManagerContainer extends React.Component {
   handleAddItem(e) {
     e.preventDefault();
     const { addGroceryItem, text } = this.props;
-    if(text === '') {
-      return;
-    } else {
-      groceryListRef.push({
-        id: shortid.generate(),
-        text,
-        date: new Date().toLocaleString(),
-        isComplete: false
-      })
-      this.handleClearInput();
-    }
+    groceryListRef.push({
+      id: shortid.generate(),
+      text,
+      date: new Date().toLocaleString(),
+      isComplete: false
+    })
+    this.handleClearInput();
   }
 
   handleOnChange(e) {
@@ -42,7 +38,7 @@ class InputManagerContainer extends React.Component {
     getInput(e.target.value);
   }
 
-  handleClearInput() {
+  handleClearInput(e) {
     const { clearInput } = this.props;;
     clearInput();
   }
