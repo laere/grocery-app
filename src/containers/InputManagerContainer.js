@@ -23,7 +23,7 @@ class InputManagerContainer extends React.Component {
 
   handleAddItem(e) {
     e.preventDefault();
-    const { addGroceryItem, text } = this.props;
+    const { text } = this.props;
     if(text === '') {
       return;
     } else {
@@ -43,7 +43,7 @@ class InputManagerContainer extends React.Component {
   }
 
   handleClearInput() {
-    const { clearInput } = this.props;;
+    const { clearInput } = this.props;
     clearInput();
   }
 

@@ -31,7 +31,8 @@ class GroceryListContainer extends React.Component {
     deleteGroceryItem(id);
   }
 
-  handleCompleteItem(id) {
+  handleCompleteItem(key, id) {
+    groceryListRef.child(key).update({isComplete: true});
     const { completeGroceryItem } = this.props;
     completeGroceryItem(id);
   }
