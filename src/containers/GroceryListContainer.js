@@ -7,7 +7,9 @@ import { groceryListRef } from '../firebase/utils';
 class GroceryListContainer extends React.Component {
   static propTypes = {
     deleteGroceryItem: PropTypes.func.isRequired,
-    completeGroceryItem: PropTypes.func.isRequired
+    completeGroceryItem: PropTypes.func.isRequired,
+    renderGroceryItems: PropTypes.func.isRequired,
+    items: PropTypes.object.isRequired
   };
 
   constructor(props) {

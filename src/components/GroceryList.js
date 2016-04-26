@@ -26,4 +26,10 @@ const GroceryList = ({ items, deleteItem, completeItem }) => {
     );
 }
 
+GroceryList.propTypes = {
+    items: PropTypes.object.isRequired,
+    deleteItem: PropTypes.func.isRequired,
+    completeItem: PropTypes.func.isRequired
+}
+
 export default GroceryList;
