@@ -2,10 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import InputManager from '../components/InputManager';
 import { connect } from 'react-redux';
 import { userInput, clear } from '../actions/actions';
-import shortid from 'shortid';
-
-const url = 'https://zacksgroceryapp.firebaseio.com/grocerylist',
-      groceryListRef = new Firebase(url);
+import { groceryListRef, itemData } from '../firebase/utils';
 
 class InputManagerContainer extends React.Component {
   static propTypes = {
@@ -24,17 +21,11 @@ class InputManagerContainer extends React.Component {
   handleAddItem(e) {
     e.preventDefault();
     const { text } = this.props;
-    if(text === '') {
+    if(text === '')
       return;
-    } else {
-      groceryListRef.push({
-        id: shortid.generate(),
-        text,
-        date: new Date().toLocaleString(),
-        isComplete: false
-      })
+     else
+      groceryListRef.push(itemData);
       this.handleClearInput();
-    }
   }
 
   handleOnChange(e) {
@@ -60,8 +51,7 @@ class InputManagerContainer extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    text: state.inputChange,
-    items: state.items
+    text: state.inputChange
   }
 }
 

@@ -2,9 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import GroceryList from '../components/GroceryList';
 import { connect } from 'react-redux';
 import { deleteItem, completeItem, renderItems } from '../actions/actions';
-
-const url = 'https://zacksgroceryapp.firebaseio.com/grocerylist',
-      groceryListRef = new Firebase(url);
+import { groceryListRef } from '../firebase/utils';
 
 class GroceryListContainer extends React.Component {
   static propTypes = {
