@@ -1,0 +1,58 @@
+.container {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 72px;
+
+  .appWrapper {
+    padding: 48px;
+  }
+
+
+  .groceryListItem {
+
+    margin: 16px 0;
+    color: $darkblack;
+    text-align: center;
+    border: 1px solid $whitegrey;
+
+    .groceryListItem-Data {
+      padding: 16px;
+    }
+
+  }
+
+
+
+  .inputManager {
+    padding: 8px 0;
+  }
+
+
+}
+
+.btn {
+  color: $darkblack;
+  border: none;
+  background-color: $white;
+}
+
+.removeBtn {
+  background-color: $red;
+  color: $white;
+}
+
+.completeBtn {
+  background-color: $whitegrey;
+}
+
+
+.complete {
+  background-color: $red;
+}
+
+.incomplete {
+  background-color: $white;
+}

@@ -2,13 +2,13 @@ import React, { Component, PropTypes } from 'react';
 
 const InputManager = ({ onChange, addItem, clearInput, text }) => {
   return (
-    <div>
+    <div className="inputManager">
       <form onSubmit={addItem}>
         <input type="text" value={text} onChange={onChange}/>
-        <button>
+        <button className="btn">
           <i className="fa fa-plus fa-lg"></i>
         </button>
-        <button onClick={clearInput}>
+        <button onClick={clearInput} className="btn">
           <i className="fa fa-trash fa-lg"></i>
         </button>
       </form>

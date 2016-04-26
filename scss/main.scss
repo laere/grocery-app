@@ -1,7 +1,4 @@
-.complete {
-  text-decoration: line-through;
-}
-
-.incomplete {
-  text-decoration: none;
-}
+@import '_colors_fonts';
+@import '_normalize';
+@import '_basestyles';
+@import '_container';

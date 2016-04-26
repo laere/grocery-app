@@ -2,7 +2,8 @@ import React, { Component, PropTypes } from 'react';
 import InputManager from '../components/InputManager';
 import { connect } from 'react-redux';
 import { userInput, clear } from '../actions/actions';
-import { groceryListRef, itemData } from '../firebase/utils';
+import { groceryListRef } from '../firebase/utils';
+import shortid from 'shortid';
 
 class InputManagerContainer extends React.Component {
   static propTypes = {
@@ -24,7 +25,12 @@ class InputManagerContainer extends React.Component {
     if(text === '')
       return;
      else
-      groceryListRef.push(itemData);
+      groceryListRef.push({
+        id: shortid.generate(),
+        text,
+        date: new Date().toLocaleString(),
+        isComplete: false
+      });
       this.handleClearInput();
   }
 
