@@ -10,9 +10,7 @@
     padding: 48px;
   }
 
-
   .groceryListItem {
-
     margin: 16px 0;
     color: $darkblack;
     text-align: center;
@@ -23,8 +21,6 @@
     }
 
   }
-
-
 
   .inputManager {
     padding: 8px 0;
@@ -39,18 +35,13 @@
   background-color: $white;
 }
 
-.removeBtn {
+.removeBtn, .complete {
   background-color: $red;
   color: $white;
 }
 
 .completeBtn {
   background-color: $whitegrey;
-}
-
-
-.complete {
-  background-color: $red;
 }
 
 .incomplete {
